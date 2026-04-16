@@ -1,1 +1,7 @@
 @import 'tailwindcss';
+
+:root {
+  --color-forest: #304838;
+  --color-lime: #69FFB6;
+  --color-cream: #FFFDEC;
+}

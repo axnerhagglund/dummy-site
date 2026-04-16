@@ -32,7 +32,7 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        <div className="mt-20 pt-10 border-t border-[#FFFDEC]/10 flex flex-col md:flex-row items-center justify-between gap-6 text-[#FFFDEC]/50 font-medium">
+        <div className="mt-20 pt-10 border-t border-[#FFFDEC]/10 flex flex-col md:flex-row items-center justify-between gap-6 text-[#FFFDEC]/70 font-medium">
           <p>&copy; {new Date().getFullYear()} Outward. Dummy site for demo purposes.</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-[#69FFB6]">Terms</a>
