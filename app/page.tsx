@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "@/components/dummy-site/Container";
 import { Button } from "@/components/dummy-site/Button";
 import { ProductGrid } from "@/components/dummy-site/ProductGrid";
@@ -26,22 +27,26 @@ export default async function DummyHomePage() {
               faster, smoother Sylan 2.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link href="/products" className="bg-white text-[#111] text-[13px] font-bold px-8 py-3 hover:bg-zinc-100 transition-colors flex items-center justify-center">
-                Shop women's
+              <Link href="/products?gender=Women" className="bg-white text-[#111] text-[13px] font-bold px-8 py-3 hover:bg-zinc-100 transition-colors flex items-center justify-center">
+                Shop women&apos;s
               </Link>
-              <Link href="/products" className="bg-white text-[#111] text-[13px] font-bold px-8 py-3 hover:bg-zinc-100 transition-colors flex items-center justify-center">
-                Shop men's
+              <Link href="/products?gender=Men" className="bg-white text-[#111] text-[13px] font-bold px-8 py-3 hover:bg-zinc-100 transition-colors flex items-center justify-center">
+                Shop men&apos;s
               </Link>
             </div>
           </div>
 
           {/* Right Column - Image */}
           <div className="relative h-full flex items-center justify-center p-8 md:p-12 z-0">
-            <img
-              src="/jackets.jpg"
-              alt="Hero Product Shell Jacket"
-              className="w-full h-auto max-h-full object-cover rounded-3xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8)] scale-110 md:scale-125 lg:translate-x-12"
-            />
+            <div className="relative w-full h-full scale-110 md:scale-125 lg:translate-x-12">
+              <Image
+                src="/jackets.jpg"
+                alt="Shell jacket product"
+                fill
+                priority
+                className="object-cover rounded-3xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8)]"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -56,13 +61,14 @@ export default async function DummyHomePage() {
               { name: "Tent", label: "Tents", img: "/tents.png" },
               { name: "Hiking shoes", label: "Hiking Shoes", img: "/hiking-shoes.png" }
             ].map((category, index) => (
-              <Link href={`/products?category=${category.label}`} key={index} className="group relative aspect-3/4 overflow-hidden rounded-4xl bg-zinc-200 shadow-xl">
-                <img
+              <Link href={`/products?category=${category.label}`} key={index} className="group relative aspect-[3/4] overflow-hidden rounded-[2rem] bg-zinc-200 shadow-xl">
+                <Image
                   src={category.img}
                   alt={category.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-1000 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-[#304838]/90 via-[#304838]/20 to-transparent flex flex-col justify-end p-8">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#304838]/90 via-[#304838]/20 to-transparent flex flex-col justify-end p-8">
                   <h3 className="text-3xl sm:text-4xl font-black tracking-tight text-[#FFFDEC] mb-4">{category.name}</h3>
                   <span className="text-[#69FFB6] font-bold tracking-widest uppercase text-sm flex items-center gap-3 group-hover:gap-5 transition-all duration-300">
                     Explore <span aria-hidden="true" className="text-xl leading-none">&rarr;</span>
